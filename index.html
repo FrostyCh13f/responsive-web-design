@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helldivers 2 Weapon Survey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images4.alphacoders.com/133/1337068.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(173, 216, 230, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    button,
+    select {
+      width: calc(100% - 22px);
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      color: rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="container">
+    <h1>Helldivers 2 Weapon Survey</h1>
+    <form id="survey-form">
+      <div class="form-group">
+        <label for="participant-type" style="font-size: 18px;">Participant Type:</label>
+        <div>
+          <input type="radio" id="helldiver" name="participant-type" value="Helldiver">
+          <label for="helldiver" style="font-size: 16px;">Honourable Helldiver</label>
+        </div>
+        <div>
+          <input type="radio" id="bot-sympathizer" name="participant-type" value="BotSympathizer">
+          <label for="bot-sympathizer" style="font-size: 16px;">Bot Sympathizer</label>
+        </div>
+        <div>
+          <input type="radio" id="terminid-pest" name="participant-type" value="TerminidPest">
+          <label for="terminid-pest" style="font-size: 16px;">Terminid Pest</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="steam-username" style="font-size: 18px;">Steam Username:</label>
+        <input type="text" id="steam-username" name="steam-username" placeholder="Enter your Steam username" required>
+      </div>
+      <div class="form-group">
+        <label for="preference" style="font-size: 18px;">Preferred Enemy (Bot or Bug):</label>
+        <select id="preference" name="preference">
+          <option value=""></option>
+          <option value="bot">Bot</option>
+          <option value="bug">Bug</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="primary" style="font-size: 18px;">Preferred Primary:</label>
+        <select id="primary" name="primary">
+          <option value=""></option>
+          <option value="liberator">Liberator</option>
+          <option value="breaker">Breaker</option>
+          <option value="sickle">Sickle</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="secondary" style="font-size: 18px;">Preferred Secondary:</label>
+        <select id="secondary" name="secondary">
+          <option value=""></option>
+          <option value="peacemaker">Peacemaker</option>
+          <option value="redeemer">Redeemer</option>
+          <option value="senator">Senator</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="benefits" style="font-size: 18px;">Benefits of using this loadout (optional):</label>
+        <textarea id="benefits" name="benefits" placeholder="Enter the benefits of using this loadout"></textarea>
+      </div>
+      <button type="submit" style="font-size: 16px;">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById("survey-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var participantTypes = document.querySelectorAll('input[name="participant-type"]:checked');
+    var steamUsername = document.getElementById("steam-username").value;
+    var preference = document.getElementById("preference").value;
+    var primary = document.getElementById("primary").value;
+    var secondary = document.getElementById("secondary").value;
+    var benefits = document.getElementById("benefits").value;
+    
+    if (participantTypes.length === 1 && steamUsername && preference && primary && secondary) {
+      alert("Thank you for completing the survey!");
+    } else {
+      alert("Please fill in all the required fields and select only one participant type.");
+    }
+  });
+</script>
+
+</body>
+</html>
